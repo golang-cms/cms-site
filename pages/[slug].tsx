@@ -1,8 +1,8 @@
-function createMarkup(content) {
+function createMarkup(content: string) {
   return { __html: content };
 }
 
-const Post = ({ post }) => {
+const Post = ({ post }: any) => {
   return (
     <>
       <h2>{post?.title}</h2>
@@ -27,7 +27,7 @@ export async function getStaticPaths() {
 }
 
 // This also gets called at build time
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
   console.log("params", params);
   const path = new Map<string, string>();
   path.set("first", "1");

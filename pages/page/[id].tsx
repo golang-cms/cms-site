@@ -1,9 +1,14 @@
-function createMarkup(content) {
+function createMarkup(content: string) {
   return { __html: content };
 }
 
+export interface Post {
+  title: string;
+  slug: string;
+  content: string;
+}
 
-const Post = ({ post }) => {
+const Post = ({ post }: { post: Post }) => {
   return (
     <>
       <h2>{post.title}</h2>
@@ -24,7 +29,7 @@ export async function getStaticPaths() {
 }
 
 // This also gets called at build time
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
   // params contains the post `id`.
   // If the route is like /posts/1, then params.id is 1
   const res = await fetch(
