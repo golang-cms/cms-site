@@ -24,7 +24,7 @@ export async function getStaticPaths() {
     paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
     // Enable statically generating additional pages
     // For example: `/posts/3`
-    fallback: true,
+    fallback: false,
   };
 }
 

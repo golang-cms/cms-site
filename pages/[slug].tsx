@@ -22,7 +22,7 @@ export async function getStaticPaths() {
     ],
     // Enable statically generating additional pages
     // For example: `/posts/3`
-    fallback: true,
+    fallback: false,
   };
 }
 
