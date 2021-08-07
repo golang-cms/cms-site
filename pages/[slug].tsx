@@ -6,7 +6,7 @@ const Post = ({ post }: any) => {
   return (
     <>
       <h2>{post?.title}</h2>
-      <section dangerouslySetInnerHTML={createMarkup(post.content)}></section>
+      <section dangerouslySetInnerHTML={createMarkup(post?.content)}></section>
     </>
   );
 };

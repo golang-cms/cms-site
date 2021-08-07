@@ -11,8 +11,8 @@ export interface Post {
 const Post = ({ post }: { post: Post }) => {
   return (
     <>
-      <h2>{post.title}</h2>
-      <section dangerouslySetInnerHTML={createMarkup(post.content)}></section>
+      <h2>{post?.title}</h2>
+      <section dangerouslySetInnerHTML={createMarkup(post?.content)}></section>
     </>
   );
 };
