@@ -1,5 +1,6 @@
 import { PostModel } from "../model/post";
 import Layout from "../components/layout/onepirate/Layout";
+import { useRouter } from "next/dist/client/router";
 
 function createMarkup(content: string) {
   return { __html: content };
@@ -8,6 +9,12 @@ function createMarkup(content: string) {
 let posts: PostModel[];
 
 const Page = ({ post }: { post: PostModel }) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    // your loading indicator
+    return <div>loading...</div>;
+  }
   return (
     <>
       {/* <h2>{post?.title}</h2> */}
@@ -23,9 +30,7 @@ export const getPosts = async (): Promise<PostModel[]> => {
     return posts;
   }
 
-  const res = await fetch(
-    `${process.env.contentApiHost}/v1/posts`
-  );
+  const res = await fetch(`${process.env.contentApiHost}/v1/posts`);
   posts = await res.json();
   return posts;
 };
@@ -46,7 +51,7 @@ export async function getStaticPaths() {
     paths: paths,
     // Enable statically generating additional pages
     // For example: `/posts/3`
-    fallback: false,
+    fallback: true,
   };
 }
 
