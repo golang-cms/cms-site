@@ -1,25 +1,49 @@
+import { PostModel } from "../model/post";
+import Layout from "../components/layout/onepirate/Layout";
+
 function createMarkup(content: string) {
   return { __html: content };
 }
 
-const Post = ({ post }: any) => {
+let posts: PostModel[];
+
+const Page = ({ post }: { post: PostModel }) => {
   return (
     <>
-      <h2>{post?.title}</h2>
+      {/* <h2>{post?.title}</h2> */}
       <section dangerouslySetInnerHTML={createMarkup(post?.content)}></section>
     </>
   );
 };
 
+Page.getLayout = (page: any) => <Layout> {page} </Layout>;
+
+export const getPosts = async (): Promise<PostModel[]> => {
+  if (posts) {
+    return posts;
+  }
+
+  const res = await fetch(
+    `${process.env.contentApiHost}/v1/posts`
+  );
+  posts = await res.json();
+  return posts;
+};
+
 // This function gets called at build time
 export async function getStaticPaths() {
+  const posts = await getPosts();
+  const paths = posts.map((post) => {
+    return {
+      params: {
+        slug: post?.slug,
+      },
+    };
+  });
+  // console.log("============ get post", paths);
+
   return {
-    // Only `/posts/1` and `/posts/2` are generated at build time
-    paths: [
-      { params: { id: "1", slug: "first" } },
-      { params: { id: "2", slug: "second" } },
-      { params: { id: "3", slug: "three" } },
-    ],
+    paths: paths,
     // Enable statically generating additional pages
     // For example: `/posts/3`
     fallback: false,
@@ -28,21 +52,9 @@ export async function getStaticPaths() {
 
 // This also gets called at build time
 export async function getStaticProps({ params }: any) {
-  console.log("params", params);
-  const path = new Map<string, string>();
-  path.set("first", "1");
-  path.set("second", "2");
-  path.set("three", "1");
+  const posts = await getPosts();
+  const post = posts.find((post) => post.slug == params.slug);
 
-  const id = path.get(params.slug);
-  // params contains the post `id`.
-  // If the route is like /posts/1, then params.id is 1
-  const res = await fetch(
-    `https://cms-api-content-api-cms-zt1983811.cloud.okteto.net/v1/posts/${id}`
-  );
-  const post = await res.json();
-
-  // Pass post data to the page via props
   return {
     props: { post },
     // Re-generate the post at most once per second
@@ -51,4 +63,4 @@ export async function getStaticProps({ params }: any) {
   };
 }
 
-export default Post;
+export default Page;

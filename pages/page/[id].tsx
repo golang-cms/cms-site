@@ -1,14 +1,11 @@
+import { PostModel } from "../../model/post";
+
 function createMarkup(content: string) {
   return { __html: content };
 }
 
-export interface Post {
-  title: string;
-  slug: string;
-  content: string;
-}
 
-const Post = ({ post }: { post: Post }) => {
+const Post = ({ post }: { post: PostModel }) => {
   return (
     <>
       <h2>{post?.title}</h2>
@@ -46,4 +43,4 @@ export async function getStaticProps({ params }: any) {
   };
 }
 
-export default Post;
+export default PostModel;
