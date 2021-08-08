@@ -26,6 +26,9 @@ module.exports = (phase) => {
 
   return {
     env: app,
+    async rewrites() {
+      return [{ source: "/", destination: "/index" }];
+    },
     reactStrictMode: true,
     images: {
       domains: ["smardev.ga"],
