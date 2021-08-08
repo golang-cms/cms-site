@@ -27,7 +27,7 @@ module.exports = (phase) => {
   return {
     env: app,
     async rewrites() {
-      return [{ source: "/", destination: "/index" }];
+      return [{ source: "/", destination: "/home" }];
     },
     reactStrictMode: true,
     images: {
