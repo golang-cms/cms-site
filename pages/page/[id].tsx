@@ -43,4 +43,4 @@ export async function getStaticProps({ params }: any) {
   };
 }
 
-export default PostModel;
+export default Post;
