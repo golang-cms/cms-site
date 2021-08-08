@@ -27,3 +27,5 @@ chrome-user-data
 *.swo
 .metals/
 package-lock.json
+
+.vercel
