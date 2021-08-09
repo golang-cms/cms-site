@@ -37,7 +37,8 @@ module.exports = (phase) => {
       if (dev) {
         return defaultPathMap;
       }
-      return { "/": { page: "/about" } };
+      return defaultPathMap;
+      // return { "/": { page: "/placeholder" } };
     },
     reactStrictMode: true,
     images: {
