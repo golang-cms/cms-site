@@ -30,15 +30,15 @@ module.exports = (phase) => {
     async rewrites() {
       return [{ source: "/", destination: "/home" }];
     },
-    //    exportPathMap: async function (
-    //      defaultPathMap,
-    //      { dev, dir, outDir, distDir, buildId }
-    //    ) {
-    //      if (isDev) {
-    //        return defaultPathMap;
-    //      }
-    //      return { "/": { page: "/home" } };
-    //    },
+    exportPathMap: async function (
+      defaultPathMap,
+      { dev, dir, outDir, distDir, buildId }
+    ) {
+      if (dev) {
+        return defaultPathMap;
+      }
+      return { "/": { page: "/home" } };
+    },
     reactStrictMode: true,
     images: {
       domains: ["smardev.ga"],
