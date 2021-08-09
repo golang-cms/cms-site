@@ -8,12 +8,11 @@ module.exports = (phase) => {
   const isDev = phase === PHASE_DEVELOPMENT_SERVER;
   // when `next build` or `npm run build` is used
   const isProd =
-    phase === (PHASE_PRODUCTION_BUILD || PHASE_EXPORT) &&
-    process.env.STAGING !== "1";
+    phase === PHASE_PRODUCTION_BUILD && process.env.STAGING !== "1";
   // when `next build` or `npm run build` is used
   const isStaging =
     phase === PHASE_PRODUCTION_BUILD && process.env.STAGING === "1";
-
+  const isExport = phase === PHASE_EXPORT;
   console.log(`isDev:${isDev}  isProd:${isProd}   isStaging:${isStaging}`);
 
   const app = {
@@ -35,10 +34,10 @@ module.exports = (phase) => {
       defaultPathMap,
       { dev, dir, outDir, distDir, buildId }
     ) {
-      if (isProd) {
+      if (isProd || isExport) {
         return { "/": { page: "/home" } };
       }
-      return { "/": { page: "/" } };
+      return null;
     },
     reactStrictMode: true,
     images: {
