@@ -24,19 +24,18 @@ module.exports = (phase) => {
     })(),
   };
 
-
   return {
     env: app,
-    rewrite: async () {
+    rewrite: async function () {
       return [{ source: "/", destination: "/home" }];
     },
     exportPathMap: async function (
       defaultPathMap,
       { dev, dir, outDir, distDir, buildId }
     ) {
-      return {
-        "/": { page: "/home" },
-      };
+      if (isProd) {
+        return { "/": { page: "/home" } };
+      }
     },
     reactStrictMode: true,
     images: {
