@@ -37,7 +37,7 @@ module.exports = (phase) => {
       if (dev) {
         return defaultPathMap;
       }
-      return { "/": { page: "/home" } };
+      return { "/": { page: "/about" } };
     },
     reactStrictMode: true,
     images: {
