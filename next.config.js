@@ -34,10 +34,7 @@ module.exports = (phase) => {
       defaultPathMap,
       { dev, dir, outDir, distDir, buildId }
     ) {
-      if (isProd || isExport) {
-        return { "/": { page: "/home" } };
-      }
-      return null;
+      return { "/": { page: "/home" } };
     },
     reactStrictMode: true,
     images: {
