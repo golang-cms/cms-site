@@ -12,7 +12,6 @@ const Layout = ({ children, props }: any) => {
       <Head>
         <title>SmartDev Teams</title>
         <meta name="description" content="Smart dev" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header props={props} />
       <main className={styles.main}>{children}</main>
