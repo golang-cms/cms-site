@@ -1,6 +1,7 @@
-import { PostModel } from "../model/post";
-import Layout from "../components/layout/onepirate/Layout";
 import { useRouter } from "next/dist/client/router";
+import Layout from "../components/layout/onepirate/Layout";
+import { PostModel } from "../model/post";
+import styles from "../styles/Slug.module.css";
 
 function createMarkup(content: string) {
   return { __html: content };
@@ -15,19 +16,30 @@ const Page = ({ post }: { post: PostModel }) => {
     // your loading indicator
     return <div>loading...</div>;
   }
+  console.log(post);
   return (
     <>
       {/* <h2>{post?.title}</h2> */}
-      <section dangerouslySetInnerHTML={createMarkup(post?.content)}></section>
+      <section className={styles.contentSection} dangerouslySetInnerHTML={createMarkup(post?.content)}></section>
     </>
   );
 };
 
-Page.getLayout = (page: any) => <Layout> {page} </Layout>;
+interface Props {
+    homePageLink: string;
+    companyName: string;
+}
+
+const props = {
+    homePageLink: "/",
+    companyName: "SmartCodee",
+} as Props
+
+Page.getLayout = (page: any) => <Layout props={props}> {page} </Layout>;
 
 export const getPosts = async (): Promise<PostModel[]> => {
   if (posts) {
-    return posts;
+    // return posts;
   }
 
   const res = await fetch(`${process.env.contentApiHost}/v1/posts`);

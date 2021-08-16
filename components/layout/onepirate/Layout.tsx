@@ -1,13 +1,15 @@
 import styles from "../../../styles/Home.module.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import Button from "@material-ui/core/Button";
 
-const Layout = ({ children }: any) => {
+const Layout = ({ children, props }: any) => {
   return (
     <>
-      <Header />
+      <Header props={props} />
       <main className={styles.main}>{children}</main>
-      <Footer />
+      <Footer props={props} />
+      <Button hidden={true} />
     </>
   );
 };
