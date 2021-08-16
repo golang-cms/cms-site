@@ -53,6 +53,7 @@ function Header({ props, classes }) {
             {props.companyName}
           </Link>
           <div className={classes.right}>
+            {/*
             <Link
               color="inherit"
               variant="h6"
@@ -69,7 +70,9 @@ function Header({ props, classes }) {
               href="/premium-themes/onepirate/sign-up/"
             >
               {"Sign Up"}
+
             </Link>
+              */}
           </div>
         </Toolbar>
       </AppBar>
