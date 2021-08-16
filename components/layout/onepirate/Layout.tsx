@@ -10,7 +10,7 @@ const Layout = ({ children, props }: any) => {
   return (
     <>
       <Head>
-        <title>SmartDev Teams</title>
+        <title>SmartCodee</title>
         <meta name="description" content="Smart dev" />
       </Head>
       <Header props={props} />
