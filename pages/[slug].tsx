@@ -25,7 +25,7 @@ const Page = ({ post }: { post: PostModel }) => {
   );
 };
 
-interface Props {
+export interface Props {
     homePageLink: string;
     companyName: string;
 }
