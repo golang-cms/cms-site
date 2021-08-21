@@ -15,14 +15,24 @@ module.exports = (phase) => {
   const isExport = phase === PHASE_EXPORT;
   console.log(`isDev:${isDev}  isProd:${isProd}   isStaging:${isStaging}`);
 
+  const configByEnv = (config) => {
+    if (isDev) return config["dev"];
+    if (isProd) return config["prod"]
+    if (isStaging) return config["staging"];
+    return "config:not (isDev,isProd && !isStaging,isProd && isStaging)";
+  };
+
   const app = {
-    contentApiHost: (() => {
-      if (isDev) return "http://localhost:38080";
-      if (isProd)
-        return "https://cms-api-content-api-cms-zt1983811.cloud.okteto.net";
-      if (isStaging) return "http://localhost:38080";
-      return "contentApiHost:not (isDev,isProd && !isStaging,isProd && isStaging)";
-    })(),
+    contentApiHost: configByEnv({
+      dev: "http://localhost:38080",
+      staging: "http://localhost:38080",
+      prod: "https://cms-api-content-api-cms-zt1983811.cloud.okteto.net",
+    }),
+    reCaptchaKey: configByEnv({
+      dev: "6LeAFwwcAAAAAAVVU5aGc1smV0_8V1iFZJXb_hcK",
+      staging: "",
+      prod: "6LfBTAgcAAAAAIoz9mmHs0onei9Q7rJd5r3Yz6mt",
+    })
   };
 
   return {

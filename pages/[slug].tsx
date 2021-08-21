@@ -16,7 +16,7 @@ const Page = ({ post }: { post: PostModel }) => {
     // your loading indicator
     return <div>loading...</div>;
   }
-  console.log(post);
+  // console.log(post);
   return (
     <>
       {/* <h2>{post?.title}</h2> */}
