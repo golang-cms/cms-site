@@ -7,6 +7,7 @@ import {
   Grid,
   makeStyles,
   Paper,
+  Slide,
   Snackbar,
   TextField,
   Typography,
@@ -19,7 +20,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import Layout from "../components/layout/onepirate/Layout";
 import { Props } from "./[slug]";
-import MuiAlert from '@material-ui/lab/Alert';
+import MuiAlert from "@material-ui/lab/Alert";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,19 +84,21 @@ const ContactUs = () => {
         >
           Your browser does not support the video tag.
         </video>
-        <Card className={classes.card}>
-          <CardContent>
-            <Typography color="inherit" variant="h5" component="h2">
-              <LocalPhoneIcon /> <span>514-999-7155</span>
-            </Typography>
-            <Typography variant="h5" component="h2">
-              <RoomIcon /> <span>1280 Rue Saint-Jacques Montreal QC</span>
-            </Typography>
-            <Typography variant="h5" component="h2">
-              <EmailIcon /> <span>info@smartcodee.com</span>
-            </Typography>
-          </CardContent>
-        </Card>
+        <Slide direction="right" mountOnEnter unmountOnExit {... { timeout: 2000, in: true }}>
+          <Card className={classes.card}>
+            <CardContent>
+              <Typography color="inherit" variant="h5" component="h2">
+                <LocalPhoneIcon /> <span>514-999-7155</span>
+              </Typography>
+              <Typography variant="h5" component="h2">
+                <RoomIcon /> <span>1280 Rue Saint-Jacques Montreal QC</span>
+              </Typography>
+              <Typography variant="h5" component="h2">
+                <EmailIcon /> <span>info@smartcodee.com</span>
+              </Typography>
+            </CardContent>
+          </Card>
+        </Slide>
       </Grid>
       <Form />
     </Grid>
@@ -140,7 +143,13 @@ const Form = () => {
 
   return (
     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-      <Snackbar open={msgOpen} autoHideDuration={6000} onClose={() => {setMsgOpen(false)}}>
+      <Snackbar
+        open={msgOpen}
+        autoHideDuration={6000}
+        onClose={() => {
+          setMsgOpen(false);
+        }}
+      >
         <MuiAlert elevation={6} variant="filled" severity="success">
           We have received your message, will contact you soon!
         </MuiAlert>
