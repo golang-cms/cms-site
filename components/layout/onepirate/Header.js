@@ -1,8 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import clsx from "clsx";
-import { withStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import React from "react";
 import AppBar from "./components/AppBar";
 import Toolbar, { styles as toolbarStyles } from "./components/Toolbar";
 

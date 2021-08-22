@@ -24,9 +24,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     // backgroundColor: theme.palette.secondary.light,
-    backgroundColor: theme.palette.primary.main,
+    // backgroundColor: theme.palette.primary.main,
     // backgroundColor: theme.palette.grey.A700,
     color: theme.palette.common.white,
+    backgroundColor: "#2a2a72",
+    backgroundImage: "linear-gradient(315deg, #2a2a72 0%, #009ffd 74%)",
   },
   container: {
     marginTop: theme.spacing(8),

@@ -6,6 +6,8 @@ import MuiAppBar from '@material-ui/core/AppBar';
 const styles = (theme) => ({
   root: {
     color: theme.palette.common.white,
+    backgroundColor: "#2a2a72",
+    backgroundImage: "linear-gradient(315deg, #2a2a72 0%, #009ffd 74%)",
   },
 });
 
