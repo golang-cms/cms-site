@@ -1,4 +1,5 @@
 import Link from "@material-ui/core/Link";
+import { Slide } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import React from "react";
@@ -7,7 +8,17 @@ import Toolbar, { styles as toolbarStyles } from "./components/Toolbar";
 
 const styles = (theme) => ({
   title: {
-    fontSize: 24,
+    fontSize: 31,
+    // background: '-webkit-linear-gradient(top, #8f6B29, #FDE08D, #DF9F28)',
+    // background: 'linear-gradient(top, #8f6B29, #FDE08D, #DF9F28)',
+    // backgroundColor: 'transparent',
+    color: "transparent",
+    // backgroundImage: "linear-gradient( to right, #462523 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #462523 100%)",
+    backgroundImage: "linear-gradient( to right, #8f6B29 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #DF9F28 100%)",
+    "-webkit-background-clip": "text",
+    fontFamily: "mazzard",
+    letterSpacing: "-1px",
+    marginLeft: "5px",
   },
   placeholder: toolbarStyles(theme).root,
   toolbar: {
@@ -42,15 +53,30 @@ function Header({ props, classes }) {
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
           <div className={classes.left} />
-          <Link
-            variant="h6"
-            underline="none"
-            color="inherit"
-            className={classes.title}
-            href={props.homePageLink}
+          <Slide
+            direction="right"
+            mountOnEnter
+            unmountOnExit
+            {...{ timeout: 3000, in: true }}
           >
-            {props.companyName}
-          </Link>
+            <img width="20" src="/static/images/logo22symbol.png" />
+          </Slide>
+          <Slide
+            direction="left"
+            mountOnEnter
+            unmountOnExit
+            {...{ timeout: 3000, in: true }}
+          >
+            <Link
+              variant="h6"
+              underline="none"
+              color="inherit"
+              className={classes.title}
+              href={props.homePageLink}
+            >
+              {props.companyName}
+            </Link>
+          </Slide>
           <div className={classes.right}>
             {/*
             <Link

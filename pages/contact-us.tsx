@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "120vh",
   },
   image: {
-    // backgroundImage: "url(/static/video/robot.mp4)",
     backgroundRepeat: "no-repeat",
     backgroundColor:
       theme.palette.type === "light"
