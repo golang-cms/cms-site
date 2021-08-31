@@ -37,20 +37,19 @@ module.exports = (phase) => {
 
   return {
     env: app,
-    //    async rewrites() {
-    //      return [{ source: "/", destination: "/home" }];
-    //    },
-    async redirects() {
-      return [
-        {
-          source: "/",
-          destination: "/home",
-          permanent: true,
-        },
-      ];
-    },
-    //exportPathMap: async function (
-    exportPathMap: function (
+    //async rewrites() {
+    //    return [{ source: "/", destination: "/home" }];
+    //},
+    // async redirects() {
+    //   return [
+    //     {
+    //       source: "/",
+    //       destination: "/home",
+    //       permanent: true,
+    //     },
+    //   ];
+    // },
+    exportPathMap: async function (
       defaultPathMap,
       { dev, dir, outDir, distDir, buildId }
     ) {
@@ -59,7 +58,7 @@ module.exports = (phase) => {
       }
       return {
         // "/": { page: "/placeholder" },
-        "/": { page: "/home" },
+        "/": { page: "/index" },
         "/contact-us": { page: "/contact-us" },
       };
     },
