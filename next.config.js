@@ -58,7 +58,7 @@ module.exports = (phase) => {
       }
       return {
         // "/": { page: "/placeholder" },
-        "/": { page: "/index-page" },
+        "/": { page: "/index" },
         "/contact-us": { page: "/contact-us" },
       };
     },
