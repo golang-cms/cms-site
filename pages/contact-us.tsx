@@ -1,27 +1,26 @@
 import {
-  Avatar,
-  Button,
-  Card,
-  CardContent,
-  CssBaseline,
-  Grid,
-  makeStyles,
-  Paper,
-  Slide,
-  Snackbar,
-  TextField,
-  Typography,
+    Avatar,
+    Button,
+    Card,
+    CardContent,
+    CssBaseline,
+    Grid,
+    makeStyles,
+    Paper,
+    Slide,
+    Snackbar,
+    TextField,
+    Typography
 } from "@material-ui/core";
 import ContactMailIcon from "@material-ui/icons/ContactMail";
 import EmailIcon from "@material-ui/icons/Email";
 import LocalPhoneIcon from "@material-ui/icons/LocalPhone";
 import RoomIcon from "@material-ui/icons/Room";
+import MuiAlert from "@material-ui/lab/Alert";
 import React from "react";
 import { useForm } from "react-hook-form";
 import Layout from "../components/layout/onepirate/Layout";
-import MuiAlert from "@material-ui/lab/Alert";
 import { siteConfig } from "../util/siteConfig";
-import Script from "next/script";
 
 const useStyles = makeStyles((theme) => ({
   root: {
