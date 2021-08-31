@@ -56,11 +56,12 @@ module.exports = (phase) => {
       if (dev) {
         return defaultPathMap;
       }
-      return {
-        // "/": { page: "/placeholder" },
-        "/": { page: "/index" },
-        "/contact-us": { page: "/contact-us" },
-      };
+      return defaultPathMap;
+//      return {
+//        // "/": { page: "/placeholder" },
+//        "/": { page: "/index" },
+//        "/contact-us": { page: "/contact-us" },
+//      };
     },
     reactStrictMode: true,
     images: {
