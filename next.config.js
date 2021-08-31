@@ -49,7 +49,8 @@ module.exports = (phase) => {
         },
       ];
     },
-    exportPathMap: async function (
+    //exportPathMap: async function (
+    exportPathMap: function (
       defaultPathMap,
       { dev, dir, outDir, distDir, buildId }
     ) {
