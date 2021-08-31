@@ -1,7 +1,12 @@
 import { useRouter } from "next/dist/client/router";
+import Head from "next/head";
+import React, { useEffect, useState } from "react";
 import Layout from "../components/layout/onepirate/Layout";
 import { PostModel } from "../model/post";
 import styles from "../styles/Slug.module.css";
+import parse from "html-react-parser";
+import { siteConfig } from "../util/siteConfig";
+import Script from "next/script";
 
 function createMarkup(content: string) {
   return { __html: content };
@@ -17,25 +22,34 @@ const Page = ({ post }: { post: PostModel }) => {
     return <div>loading...</div>;
   }
   // console.log(post);
+  const [render, setRender] = useState(false);
+
+  useEffect(() => {
+    setRender(true);
+  }, []);
   return (
     <>
+      <Head>{parse(post?.head)}</Head>
       {/* <h2>{post?.title}</h2> */}
-      <section className={styles.contentSection} dangerouslySetInnerHTML={createMarkup(post?.content)}></section>
+      <section
+        className={styles.contentSection}
+        // dangerouslySetInnerHTML={createMarkup(post?.content)}
+        dangerouslySetInnerHTML={{ __html: post?.content }}
+      ></section>
+      {post?.javascript ? (
+        <Script id="post-added">
+          {" "}
+          {post?.javascript}{" "}
+        </Script>
+      ) : (
+        ""
+      )}
     </>
   );
 };
 
-export interface Props {
-    homePageLink: string;
-    companyName: string;
-}
-
-const props = {
-    homePageLink: "/",
-    companyName: "SmartCodee",
-} as Props
-
-Page.getLayout = (page: any) => <Layout props={props}> {page} </Layout>;
+Page.getLayout = (page: any) => <Layout props={siteConfig}> {page} </Layout>;
+ 
 
 export const getPosts = async (): Promise<PostModel[]> => {
   if (posts) {

@@ -19,8 +19,9 @@ import RoomIcon from "@material-ui/icons/Room";
 import React from "react";
 import { useForm } from "react-hook-form";
 import Layout from "../components/layout/onepirate/Layout";
-import { Props } from "./[slug]";
 import MuiAlert from "@material-ui/lab/Alert";
+import { siteConfig } from "../util/siteConfig";
+import Script from "next/script";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,7 +46,18 @@ const useStyles = makeStyles((theme) => ({
     top: "12vh",
     color: "white",
     backgroundPosition: "center",
-    background: "transparent",
+    /* background: "transparent", */
+    background:
+      "linear-gradient( to right, #f6e27a 0%, #f6f2c0 50%, #f6e27a 100%)",
+    fontFamily: "mazzard",
+    letterSpacing: "-1px",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    MozBackgroundClip: "text",
+    MozTextFillColor: "transparent",
+  },
+  cardIcon: {
+    color: "#f6e27a",
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -83,17 +95,23 @@ const ContactUs = () => {
         >
           Your browser does not support the video tag.
         </video>
-        <Slide direction="right" mountOnEnter unmountOnExit {... { timeout: 2000, in: true }}>
+        <Slide
+          direction="right"
+          mountOnEnter
+          unmountOnExit
+          {...{ timeout: 2000, in: true }}
+        >
           <Card className={classes.card}>
             <CardContent>
               <Typography color="inherit" variant="h5" component="h2">
-                <LocalPhoneIcon /> <span>514-999-7155</span>
+                <LocalPhoneIcon className={classes.cardIcon} />{" "}
+                <span>{siteConfig.phone}</span>
               </Typography>
               <Typography variant="h5" component="h2">
-                <RoomIcon /> <span>1280 Rue Saint-Jacques Montreal QC</span>
+                <RoomIcon className={classes.cardIcon} /> <span>{siteConfig.address}</span>
               </Typography>
               <Typography variant="h5" component="h2">
-                <EmailIcon /> <span>info@smartcodee.com</span>
+                <EmailIcon className={classes.cardIcon} /> <span>{siteConfig.email}</span>
               </Typography>
             </CardContent>
           </Card>
@@ -227,9 +245,7 @@ const Form = () => {
   );
 };
 
-const props = {
-  homePageLink: "/",
-  companyName: "SmartCodee",
-} as Props;
-ContactUs.getLayout = (page: any) => <Layout props={props}> {page} </Layout>;
+ContactUs.getLayout = (page: any) => (
+  <Layout props={siteConfig}> {page} </Layout>
+);
 export default ContactUs;

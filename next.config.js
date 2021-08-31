@@ -13,11 +13,11 @@ module.exports = (phase) => {
   const isStaging =
     phase === PHASE_PRODUCTION_BUILD && process.env.STAGING === "1";
   const isExport = phase === PHASE_EXPORT;
-  console.log(`isDev:${isDev}  isProd:${isProd}   isStaging:${isStaging}`);
+  console.log(`isDev:${isDev} isProd:${isProd} isStaging:${isStaging}`);
 
   const configByEnv = (config) => {
     if (isDev) return config["dev"];
-    if (isProd) return config["prod"]
+    if (isProd) return config["prod"];
     if (isStaging) return config["staging"];
     return "config:not (isDev,isProd && !isStaging,isProd && isStaging)";
   };
@@ -32,13 +32,22 @@ module.exports = (phase) => {
       dev: "6LeAFwwcAAAAAAVVU5aGc1smV0_8V1iFZJXb_hcK",
       staging: "",
       prod: "6LfBTAgcAAAAAIoz9mmHs0onei9Q7rJd5r3Yz6mt",
-    })
+    }),
   };
 
   return {
     env: app,
-    async rewrites() {
-      return [{ source: "/", destination: "/home" }];
+    //    async rewrites() {
+    //      return [{ source: "/", destination: "/home" }];
+    //    },
+    async redirects() {
+      return [
+        {
+          source: "/",
+          destination: "/home",
+          permanent: true,
+        },
+      ];
     },
     exportPathMap: async function (
       defaultPathMap,
@@ -47,9 +56,9 @@ module.exports = (phase) => {
       if (dev) {
         return defaultPathMap;
       }
-      return { 
+      return {
         "/": { page: "/placeholder" },
-        "/contact-us": { page: "/contact-us" },     
+        "/contact-us": { page: "/contact-us" },
       };
     },
     reactStrictMode: true,

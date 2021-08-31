@@ -1,5 +1,7 @@
 export interface PostModel {
-  title: string;
-  slug: string;
-  content: string;
+    title: string;
+    slug: string;
+    head: string;
+    content: string;
+    javascript: string;
 }
