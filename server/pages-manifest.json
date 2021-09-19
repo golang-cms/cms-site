@@ -1,0 +1,21 @@
+{
+  "/[slug]": "pages/[slug].js",
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/api/hello": "pages/api/hello.js",
+  "/backup-index": "pages/backup-index.js",
+  "/page/[id]": "pages/page/[id].js",
+  "/_error": "pages/_error.js",
+  "/en/404": "pages/en/404.html",
+  "/fr/404": "pages/fr/404.html",
+  "/zh/404": "pages/zh/404.html",
+  "/en/500": "pages/en/500.html",
+  "/fr/500": "pages/fr/500.html",
+  "/zh/500": "pages/zh/500.html",
+  "/en/placeholder": "pages/en/placeholder.html",
+  "/fr/placeholder": "pages/fr/placeholder.html",
+  "/zh/placeholder": "pages/zh/placeholder.html",
+  "/en/contact-us": "pages/en/contact-us.html",
+  "/fr/contact-us": "pages/fr/contact-us.html",
+  "/zh/contact-us": "pages/zh/contact-us.html"
+}
