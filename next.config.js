@@ -59,6 +59,7 @@ module.exports = (phase) => {
       return {
         ...defaultPathMap,
         "/": { page: "/placeholder" },
+        "/": { page: "/index" },
       };
       //      return {
       //        // "/": { page: "/placeholder" },
@@ -75,15 +76,15 @@ module.exports = (phase) => {
       locales: ["en", "fr", "zh"],
       defaultLocale: "en",
     },
-//    domains: [
-//      {
-//        domain: "smartcodee.com",
-//        defaultLocale: "en",
-//      },
-//      {
-//        domain: "cn.smartcodee.com",
-//        defaultLocale: "zh",
-//      },
-//    ],
+    domains: [
+      {
+        domain: "smartcodee.com",
+        defaultLocale: "en",
+      },
+      {
+        domain: "cn.smartcodee.com",
+        defaultLocale: "zh",
+      },
+    ],
   };
 };
