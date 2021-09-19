@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="43.17054254520492" height="82.8" viewBox="0 0 43.17054254520492 82.5" class="css-1j8o68f">
+    <defs id="SvgjsDefs2186">
+        <linearGradient id="SvgjsLinearGradient2191">
+            <stop id="SvgjsStop2192" stop-color="#8f5e25" offset="0"></stop>
+            <stop id="SvgjsStop2193" stop-color="#fbf4a1" offset="0.5"></stop>
+            <stop id="SvgjsStop2194" stop-color="#8f5e25" offset="1"></stop>
+        </linearGradient>
+    </defs>
+    <g id="SvgjsG2187" featurekey="symbolFeature-0" transform="matrix(0.9741242921219949,0,0,0.9741242921219949,-22.25023640513402,-2.434892217013055)" fill="url(#SvgjsLinearGradient2191)">
+        <path xmlns="http://www.w3.org/2000/svg" d="M65.532,53.661c2.473-2.341,2.081-5.645-0.869-7.341L59.1,43.118c-2.95-1.697-4.723-5.797-3.941-9.109l6.699-28.398  c0.781-3.312-0.602-4.108-3.073-1.767L24.467,36.339c-2.472,2.341-2.08,5.644,0.87,7.342l5.562,3.2  c2.949,1.698,4.724,5.798,3.943,9.109l-6.701,28.398c-0.78,3.312,0.602,4.107,3.074,1.767L65.532,53.661z"></path>
+    </g>
+</svg>
