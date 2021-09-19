@@ -72,19 +72,19 @@ module.exports = (phase) => {
       domains: ["smardev.ga"],
       loader: "imgix", // this is a hack until the bug is fixed
     },
-    i18n: {
-      locales: ["en", "fr", "zh"],
-      defaultLocale: "en",
-    },
-    domains: [
-      {
-        domain: "smartcodee.com",
-        defaultLocale: "en",
-      },
-      {
-        domain: "cn.smartcodee.com",
-        defaultLocale: "zh",
-      },
-    ],
+//    i18n: {
+//      locales: ["en", "fr", "zh"],
+//      defaultLocale: "en",
+//    },
+//    domains: [
+//      {
+//        domain: "smartcodee.com",
+//        defaultLocale: "en",
+//      },
+//      {
+//        domain: "cn.smartcodee.com",
+//        defaultLocale: "zh",
+//      },
+//    ],
   };
 };
