@@ -9,7 +9,7 @@ const Post = ({ post }: { post: PostModel }) => {
   return (
     <>
       <h2>{post?.title}</h2>
-      <section dangerouslySetInnerHTML={createMarkup(post?.translations[0]?.content)}></section>
+      <section dangerouslySetInnerHTML={createMarkup(post?.translations?.[0]?.content)}></section>
     </>
   );
 };
