@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import Head from "next/head";
 import Script from "next/script";
 import React from "react";
-import styles from "../../../styles/Home.module.css";
+import styles from "../../../../styles/Home.module.css"
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -26,7 +26,7 @@ const Layout = ({ children, props }: any) => {
       <main className={styles.main}>{children}</main>
       <Footer props={props} />
       <Button className={classes.hidden} hidden={true} />
-        <Script strategy="lazyOnload">{`console.log('hhhhh')`}</Script>
+        <Script id="layout-id" strategy="lazyOnload">{`console.log('onepriate layout load')`}</Script>
     </>
   );
 };

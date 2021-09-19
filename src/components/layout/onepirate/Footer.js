@@ -54,6 +54,13 @@ const useStyles = makeStyles((theme) => ({
     },
     fontSize: 50,
   },
+  iconItem: {
+    // backgroundImage: "linear-gradient( to right, #8f6B29 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #DF9F28 100%)",
+    background: "linear-gradient(to bottom, #e72c83 0%,#a742c6 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
+  },
   list: {
     margin: 0,
     listStyle: "none",
@@ -62,10 +69,20 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     paddingTop: theme.spacing(0.5),
     paddingBottom: theme.spacing(0.5),
+
+    color: "transparent",
+    backgroundImage:
+      "linear-gradient( to right, #8f6B29 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #DF9F28 100%)",
+    WebkitBackgroundClip: "text",
+    fontFamily: "mazzard",
+    letterSpacing: "-1px",
   },
   language: {
     marginTop: theme.spacing(1),
     width: 150,
+  },
+ circle: {
+    fill: "url(#linearColors)",
   },
 }));
 
@@ -99,13 +116,14 @@ export default function AppFooter({ props }) {
             >
               <Grid item className={classes.icons}>
                 <a href="#" className={classes.icon}>
-                  <FacebookIcon fontSize="inherit" />
+                  {/* <GradientFacebookIcon fontSize="inherit" /> */}
+                  <FacebookIcon className={classes.iconItem} fontSize="inherit" />
                 </a>
-                <a
-                  href="#"
-                  className={classes.icon}
-                >
-                  <TwitterIcon fontSize="inherit" />
+                <a href="#" className={classes.icon}>
+                  <TwitterIcon
+                    className={classes.iconItem}
+                    fontSize="inherit"
+                  />
                 </a>
               </Grid>
               <Grid item>
@@ -180,3 +198,18 @@ export default function AppFooter({ props }) {
     </Typography>
   );
 }
+
+const GradientFacebookIcon = () => {
+  const classes = useStyles({});
+  return (
+    <>
+      <svg width="300" height="300">
+        <linearGradient id="linearColors" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="20%" stopColor="#39F" />
+          <stop offset="90%" stopColor="#F3F" />
+        </linearGradient>
+      </svg>
+      <FacebookIcon classes={{ circle: classes.circle }} />
+    </>
+  );
+};

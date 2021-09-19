@@ -1,12 +1,13 @@
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
-import React, { useEffect, useState } from "react";
-import Layout from "../components/layout/onepirate/Layout";
-import { PostModel } from "../model/post";
+import React, { ReactElement, useContext, useEffect, useState } from "react";
+import Layout from "../src/components/layout/onepirate/Layout";
+import { PostModel } from "../src/model/post";
 import styles from "../styles/Slug.module.css";
 import parse from "html-react-parser";
-import { siteConfig } from "../util/siteConfig";
 import Script from "next/script";
+import SiteConfigContext from "../src/providers/siteConfig/siteConfigProvider";
+import { SiteConfigModel } from "../src/model/siteConfig";
 
 function createMarkup(content: string) {
   return { __html: content };
@@ -16,6 +17,7 @@ let posts: PostModel[];
 
 const Page = ({ post }: { post: PostModel }) => {
   const router = useRouter();
+  console.log("locale is " , router.locale);
 
   if (router.isFallback) {
     // your loading indicator
@@ -27,19 +29,20 @@ const Page = ({ post }: { post: PostModel }) => {
   useEffect(() => {
     setRender(true);
   }, []);
+
   return (
     <>
-      <Head>{parse(post?.head)}</Head>
+      <Head>{parse(post?.translations[0].head)}</Head>
       {/* <h2>{post?.title}</h2> */}
       <section
         className={styles.contentSection}
         // dangerouslySetInnerHTML={createMarkup(post?.content)}
-        dangerouslySetInnerHTML={{ __html: post?.content }}
+        dangerouslySetInnerHTML={{ __html: post?.translations[0].content }}
       ></section>
-      {post?.javascript ? (
-        <Script id="post-added">
+      {post?.translations[0]?.javascript ? (
+        <Script id="slug-page-id">
           {" "}
-          {post?.javascript}{" "}
+          {post?.translations[0].javascript}{" "}
         </Script>
       ) : (
         ""
@@ -48,7 +51,9 @@ const Page = ({ post }: { post: PostModel }) => {
   );
 };
 
-Page.getLayout = (page: any) => <Layout props={siteConfig}> {page} </Layout>;
+Page.getLayout = (page: ReactElement, siteConfig: SiteConfigModel) => {
+    return <Layout props={siteConfig}> {page} </Layout>;
+};
  
 
 export const getPosts = async (): Promise<PostModel[]> => {

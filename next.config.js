@@ -37,9 +37,9 @@ module.exports = (phase) => {
 
   return {
     env: app,
-    //async rewrites() {
-    //    return [{ source: "/", destination: "/home" }];
-    //},
+    async rewrites() {
+      return [{ source: "/", destination: "/home" }];
+    },
     // async redirects() {
     //   return [
     //     {
@@ -56,17 +56,34 @@ module.exports = (phase) => {
       if (dev) {
         return defaultPathMap;
       }
-      return defaultPathMap;
-//      return {
-//        // "/": { page: "/placeholder" },
-//        "/": { page: "/index" },
-//        "/contact-us": { page: "/contact-us" },
-//      };
+      return {
+        ...defaultPathMap,
+        "/": { page: "/placeholder" },
+      };
+      //      return {
+      //        // "/": { page: "/placeholder" },
+      //        "/": { page: "/index" },
+      //        "/contact-us": { page: "/contact-us" },
+      //      };
     },
     reactStrictMode: true,
     images: {
       domains: ["smardev.ga"],
       loader: "imgix", // this is a hack until the bug is fixed
     },
+    i18n: {
+      locales: ["en", "fr", "zh"],
+      defaultLocale: "en",
+    },
+    domains: [
+      {
+        domain: "smartcodee.com",
+        defaultLocale: "en",
+      },
+      {
+        domain: "cn.smartcodee.com",
+        defaultLocale: "zh",
+      },
+    ],
   };
 };

@@ -1,4 +1,4 @@
-import { PostModel } from "../../model/post";
+import { PostModel } from "../../src/model/post";
 
 function createMarkup(content: string) {
   return { __html: content };
@@ -9,7 +9,7 @@ const Post = ({ post }: { post: PostModel }) => {
   return (
     <>
       <h2>{post?.title}</h2>
-      <section dangerouslySetInnerHTML={createMarkup(post?.content)}></section>
+      <section dangerouslySetInnerHTML={createMarkup(post?.translations[0].content)}></section>
     </>
   );
 };

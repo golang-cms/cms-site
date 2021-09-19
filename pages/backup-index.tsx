@@ -1,22 +1,22 @@
+import parse from "html-react-parser";
 import Head from "next/head";
 import Script from "next/script";
-import React from "react";
-import Layout from "../components/layout/onepirate/Layout";
-import { PostModel } from "../model/post";
-import { siteConfig } from "../util/siteConfig";
-import parse from "html-react-parser";
+import React, { ReactElement } from "react";
+import Layout from "../src/components/layout/onepirate/Layout";
+import { PostModel } from "../src/model/post";
+import { SiteConfigModel } from "../src/model/siteConfig";
 import styles from "../styles/Slug.module.css";
 
 const Index = ({ posts }: { posts: PostModel[] }) => {
   return (
     <>
-      {posts[0]?.head ? <Head>{parse(posts[0]?.head)}</Head> : ""}
+      {posts[0]?.translations[0].head ? <Head>{parse(posts[0]?.translations[0].head)}</Head> : ""}
       <section
         className={styles.contentSection}
-        dangerouslySetInnerHTML={{ __html: posts[0]?.content }}
+        dangerouslySetInnerHTML={{ __html: posts[0]?.translations[0].content }}
       ></section>
-      {posts[0]?.javascript ? (
-        <Script id="post-added"> {posts[0]?.javascript} </Script>
+      {posts[0]?.translations[0].javascript ? (
+        <Script id="post-added"> {posts[0]?.translations[0].javascript} </Script>
       ) : (
         ""
       )}
@@ -41,6 +41,6 @@ export const getStaticProps = async () => {
   };
 };
 
-Index.getLayout = (page: any) => <Layout props={siteConfig}> {page} </Layout>;
+Index.getLayout = (page: ReactElement, siteConfig: SiteConfigModel) => <Layout props={siteConfig}> {page} </Layout>;
 
 export default Index;

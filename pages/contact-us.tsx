@@ -17,10 +17,11 @@ import EmailIcon from "@material-ui/icons/Email";
 import LocalPhoneIcon from "@material-ui/icons/LocalPhone";
 import RoomIcon from "@material-ui/icons/Room";
 import MuiAlert from "@material-ui/lab/Alert";
-import React from "react";
+import React, { ReactElement, useContext } from "react";
 import { useForm } from "react-hook-form";
-import Layout from "../components/layout/onepirate/Layout";
-import { siteConfig } from "../util/siteConfig";
+import Layout from "../src/components/layout/onepirate/Layout";
+import { SiteConfigModel } from "../src/model/siteConfig";
+import SiteConfigContext from "../src/providers/siteConfig/siteConfigProvider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,6 +80,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ContactUs = () => {
   const classes = useStyles();
+  const siteConfig = useContext(SiteConfigContext);
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -244,7 +246,7 @@ const Form = () => {
   );
 };
 
-ContactUs.getLayout = (page: any) => (
+ContactUs.getLayout = (page: ReactElement, siteConfig: SiteConfigModel) => (
   <Layout props={siteConfig}> {page} </Layout>
 );
 export default ContactUs;

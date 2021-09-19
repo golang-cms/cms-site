@@ -179,6 +179,7 @@ const NavLink = ({ props, classes }) => {
       {props?.navs?.map((nav) => {
         return (
           <Link
+            key={nav.slug}
             color="inherit"
             variant="h6"
             underline="none"
