@@ -59,7 +59,7 @@ module.exports = (phase) => {
       return {
         ...defaultPathMap,
         "/": { page: "/placeholder" },
-        "/index": { page: "/placeholder" },
+//        "/index": { page: "/placeholder" },
 //      "/": { page: "/index" },
       };
       //      return {
