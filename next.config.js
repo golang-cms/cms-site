@@ -70,8 +70,9 @@ module.exports = (phase) => {
     },
     reactStrictMode: true,
     images: {
-      domains: ["smardev.ga"],
+      // domains: ["smardev.ga"],
       loader: "imgix", // this is a hack until the bug is fixed
+      path: "https://smartcodee.com",
     },
 //    i18n: {
 //      locales: ["en", "fr", "zh"],
