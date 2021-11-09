@@ -145,6 +145,7 @@ const Form = () => {
                   Content: ${data.content}
             `,
         fromEmail: data.email,
+        fromName: data.name,
         toEmail: "support@smartcodee.com",
       }),
       headers: {
