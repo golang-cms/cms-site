@@ -1,13 +1,12 @@
+import parse from "html-react-parser";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
-import React, { ReactElement, useContext, useEffect, useState } from "react";
+import Script from "next/script";
+import React, { ReactElement, useEffect, useState } from "react";
 import Layout from "../src/components/layout/onepirate/Layout";
 import { PostModel } from "../src/model/post";
-import styles from "../styles/Slug.module.css";
-import parse from "html-react-parser";
-import Script from "next/script";
-import SiteConfigContext from "../src/providers/siteConfig/siteConfigProvider";
 import { SiteConfigModel } from "../src/model/siteConfig";
+import styles from "../styles/Slug.module.css";
 
 function createMarkup(content: string) {
   return { __html: content };
