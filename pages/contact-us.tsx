@@ -32,7 +32,7 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const ContactUs = () => {
 
-  const { data, error } = useSWR(`${process.env.contentApiHost}/v1/posts?slug=contact-us`, fetcher);
+  const { data, error } = useSWR(`${process.env.contentApiHost}/v1/posts?slug=contact-us-meta`, fetcher);
   if (error) return <div>{error.message}</div>;
   if (!data) return <div>Loading...</div>;
   const post = data[0];
