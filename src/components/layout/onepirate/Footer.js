@@ -115,11 +115,11 @@ export default function AppFooter({ props }) {
               spacing={2}
             >
               <Grid item className={classes.icons}>
-                <a href="#" className={classes.icon}>
+                <a href={props.socialMedia[0].slug} className={classes.icon}>
                   {/* <GradientFacebookIcon fontSize="inherit" /> */}
                   <FacebookIcon className={classes.iconItem} fontSize="inherit" />
                 </a>
-                <a href="#" className={classes.icon}>
+                <a href={props.socialMedia[1].slug} className={classes.icon}>
                   <TwitterIcon
                     className={classes.iconItem}
                     fontSize="inherit"

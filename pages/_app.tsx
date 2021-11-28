@@ -23,10 +23,14 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return getLayout(
     <SiteConfigProvider value={siteConfig}>
       <GoogleReCaptchaProvider reCaptchaKey={process.env.reCaptchaKey}>
-        <Script id="app-page-id" strategy="lazyOnload">{`console.log('app page load')`}</Script>
+        <Script
+          id="app-page-id"
+          strategy="lazyOnload"
+        >{`console.log('app page load')`}</Script>
         <Component {...pageProps} />
       </GoogleReCaptchaProvider>
-    </SiteConfigProvider>, siteConfig
+    </SiteConfigProvider>,
+    siteConfig
   );
 }
 
@@ -62,6 +66,16 @@ export const siteConfig: SiteConfigModel = {
     {
       name: "ABOUT US",
       slug: "/about-us",
+    },
+  ] as NavModel[],
+  socialMedia: [
+    {
+      name: "facebook",
+      slug: "https://www.facebook.com/smartCodeeOrg",
+    },
+    {
+      name: "twitter",
+      slug: "",
     },
   ] as NavModel[],
 } as SiteConfigModel;

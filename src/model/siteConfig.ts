@@ -5,6 +5,7 @@ export interface SiteConfigModel {
     phone: string;
     email: string;
     navs: NavModel[];
+    socialMedia: NavModel[];
 }
 
 export interface NavModel {
