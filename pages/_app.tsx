@@ -75,7 +75,11 @@ export const siteConfig: SiteConfigModel = {
     },
     {
       name: "twitter",
-      slug: "",
+      slug: "https://twitter.com/smartcodee",
+    },
+    {
+      name: "twitter",
+      slug: "https://www.linkedin.com/company/smartcodeeorg/",
     },
   ] as NavModel[],
 } as SiteConfigModel;

@@ -7,6 +7,7 @@ import Typography from "./components/Typography";
 import TextField from "./components/TextField";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 
 function Copyright({ props }) {
   return (
@@ -81,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
     width: 150,
   },
- circle: {
+  circle: {
     fill: "url(#linearColors)",
   },
 }));
@@ -117,10 +118,19 @@ export default function AppFooter({ props }) {
               <Grid item className={classes.icons}>
                 <a href={props.socialMedia[0].slug} className={classes.icon}>
                   {/* <GradientFacebookIcon fontSize="inherit" /> */}
-                  <FacebookIcon className={classes.iconItem} fontSize="inherit" />
+                  <FacebookIcon
+                    className={classes.iconItem}
+                    fontSize="inherit"
+                  />
                 </a>
                 <a href={props.socialMedia[1].slug} className={classes.icon}>
                   <TwitterIcon
+                    className={classes.iconItem}
+                    fontSize="inherit"
+                  />
+                </a>
+                <a href={props.socialMedia[2].slug} className={classes.icon}>
+                  <LinkedInIcon
                     className={classes.iconItem}
                     fontSize="inherit"
                   />
