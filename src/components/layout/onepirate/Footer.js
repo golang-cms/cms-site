@@ -85,6 +85,16 @@ const useStyles = makeStyles((theme) => ({
   circle: {
     fill: "url(#linearColors)",
   },
+ legalLink: {
+    color: theme.palette.common.white,
+    marginLeft: theme.spacing(3),
+    color: "transparent",
+    backgroundImage:
+      "linear-gradient( to right, #8f6B29 0, #cb9b51 22%, #f6e27a 45%, #f6f2c0 50%, #f6e27a 55%, #cb9b51 78%, #DF9F28 100%)",
+    WebkitBackgroundClip: "text",
+    fontFamily: "mazzard",
+    marginLeft: "5px",
+  },
 }));
 
 const LANGUAGES = [
@@ -107,7 +117,7 @@ export default function AppFooter({ props }) {
     <Typography component="footer" className={classes.root}>
       <Container className={classes.container}>
         <Grid container spacing={5}>
-          <Grid item xs={6} sm={4} md={3}>
+          <Grid item xs={7} sm={5} md={4}>
             <Grid
               container
               direction="column"
@@ -147,10 +157,10 @@ export default function AppFooter({ props }) {
             </Typography>
             <ul className={classes.list}>
               <li className={classes.listItem}>
-                <Link href="#">Terms</Link>
+                <Link className={classes.rightLink} href="#">Terms</Link>
               </li>
               <li className={classes.listItem}>
-                <Link href="#">Privacy</Link>
+                <Link className={classes.rightLink} href="#">Privacy</Link>
               </li>
             </ul>
           </Grid>
