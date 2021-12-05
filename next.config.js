@@ -72,7 +72,7 @@ module.exports = (phase) => {
     images: {
       // domains: ["smardev.ga"],
       loader: "imgix", // this is a hack until the bug is fixed
-      path: "https://smartcodee.com",
+      path: "https://www.smartcodee.com",
     },
 //    i18n: {
 //      locales: ["en", "fr", "zh"],
